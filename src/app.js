@@ -105,7 +105,19 @@ function parseProfileJson(jsonText) {
  */
 async function fetchUserProfile(url) {
   // TODO: implement
-  return null;
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      return null;
+    }
+
+    const text = await response.text();
+    return parseProfileJson(text);
+  }
+  catch (error) {
+      return null;
+  }
 }
 
 /** -----------------------------
@@ -124,6 +136,12 @@ async function fetchUserProfile(url) {
  */
 function saveSessionToStorage(profile) {
   // TODO: implement
+  const session = {
+    displayName: profile.displayName,
+    role: profile.role
+  };
+
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
 }
 
 /**
