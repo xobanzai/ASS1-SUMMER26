@@ -41,6 +41,13 @@ function sanitizeUsername(input) {
  */
 function renderNotifications(listEl, notifications) {
   // TODO: implement
+  listEl.innerHTML = "";
+
+  notifications.forEach(msg => {
+    const li = document.createElement("li");
+    li.textContent = msg;
+    listEl.appendChild(li);
+  });
 }
 
 /** -----------------------------
