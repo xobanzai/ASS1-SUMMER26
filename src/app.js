@@ -26,9 +26,9 @@ const STORAGE_KEY = "ssp_session_v1";
  */
 function sanitizeUsername(input) {
   // TODO: implement
-  return "";
+  let sanitized = input.replace(/[^A-Za-z0-9_-]/g, "_");
 
-  
+  return sanitized.substring(0, 20);
 }
 
 /**
