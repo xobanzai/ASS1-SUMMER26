@@ -70,7 +70,24 @@ function renderNotifications(listEl, notifications) {
  */
 function parseProfileJson(jsonText) {
   // TODO: implement
-  return null;
+  try {
+    const profile = JSON.parse(jsonText);
+
+    if (typeof profile.displayName !== "string" || typeof profile.role !== "string" || 
+    (profile.role !== "user" && profile.role !== "admin") || !Array.isArray(profile.notifications))
+      return null;
+  
+
+  for (const notification of profiile.notifications) {
+    if (typeof notification !== "string")
+      return null;
+  }
+
+  return profile;
+  }
+  catch(error) {
+    return null;
+  }
 }
 
 /** -----------------------------
