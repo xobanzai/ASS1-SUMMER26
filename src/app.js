@@ -152,7 +152,23 @@ function saveSessionToStorage(profile) {
  */
 function loadSessionFromStorage() {
   // TODO: implement
-  return null;
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+
+    if (!raw) return null;
+
+    const session = JSON.parse(raw);
+
+    if (typeof session.displayName !== "string") return null;
+    if (typeof session.role !== "string") return null;
+
+    return {
+      displayName: session.displayName,
+      role: session.role
+    };
+  } catch (error) {
+    return null;
+  }
 }
 
 /** -----------------------------
