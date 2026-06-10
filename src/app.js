@@ -78,7 +78,7 @@ function parseProfileJson(jsonText) {
       return null;
   
 
-  for (const notification of profiile.notifications) {
+  for (const notification of profile.notifications) {
     if (typeof notification !== "string")
       return null;
   }
