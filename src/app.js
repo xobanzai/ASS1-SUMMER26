@@ -187,6 +187,8 @@ function loadSessionFromStorage() {
  */
 function computeAccessStatus(profile) {
   // TODO: implement
+  if (profile.role === "admin")
+    return "GRANTED";
   return "DENIED";
 }
 
